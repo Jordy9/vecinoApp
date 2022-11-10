@@ -11,3 +11,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.searchForm {
+  height: 60px;
+  padding-left: 40px;
+  padding-right: 120px;
+  border-radius: 35px;
+  font-size: 20px;
+}
+
+.searchX:hover {
+  color: gray !important;
+}
+
+.btn-button-login {
+  background-color: red;
+  border-radius: 35px;
+  color: white;
+}
+
+.badgee {
+  border-radius: 4px;
+  height: 12px;
+  width: 12px;
+  background-color: rgb(54, 179, 150);
+  margin-right: 4px;
+}
+
+.btn-search-danger {
+  background-color: red;
+  clip-path: circle();
+}
+
+.cardMouse:hover {
+  opacity: 0.8;
+}
+
+.rounded {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.card-body {
+  padding-top: 0 !important;
+}
+
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+input[type=search]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[type=search].form-control:focus, 
+[contenteditable].form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: white !important;
+}
