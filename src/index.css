@@ -20,6 +20,14 @@ code {
   font-size: 20px !important;
 }
 
+.searchFormFilter {
+  height: 42px !important;
+  padding-left: 20px !important;
+  padding-right: 70px !important;
+  border-radius: 35px !important;
+  border: 1px solid !important;
+}
+
 .searchX:hover {
   color: gray !important;
 }
@@ -29,10 +37,29 @@ code {
   margin-right: 100px;
 }
 
+.btn-outline-primary {
+  border-radius: 35px !important;
+}
+
+.cardContainerFilter {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
 @media (max-width: 600px) {
   .cardContainer {
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .cardContainerFilter {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .cardContainerFilter1 {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
   }
 }
 
@@ -59,9 +86,22 @@ code {
   margin-right: 4px;
 }
 
+.badgee2 {
+  border-radius: 4px;
+  height: 16px;
+  width: 16px;
+  background-color: rgb(54, 179, 150);
+  margin-right: 4px;
+}
+
 .btn-search-danger {
   background-color: red !important;
   clip-path: circle() !important;
+}
+
+.goBack:hover {
+  color: gray;
+  cursor: pointer;
 }
 
 .cardMouse:hover {
@@ -93,7 +133,7 @@ input[type=search]:focus,
 [contenteditable].form-control:focus {
   outline: none !important;
   box-shadow: none !important;
-  border-color: white !important;
+  /* border-color: black !important; */
 }
 
 .offcanvas{

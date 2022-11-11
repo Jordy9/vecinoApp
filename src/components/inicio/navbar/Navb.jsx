@@ -23,7 +23,7 @@ export const Navb = () => {
   }
 
   return (
-    <Navbar bg='white' variant='light' expand="lg">
+    <Navbar bg='white' variant='light' style={{borderBottom: '1px solid gray'}} expand="lg">
 
 
       <Navbar.Brand 

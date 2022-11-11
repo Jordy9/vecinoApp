@@ -10,7 +10,7 @@ export const Banner = ({ title, secondTitle }) => {
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
-              height: '400px'
+              height: '450px'
             }}
         >
           <SearchFilter title={title} secondTitle = {secondTitle} />
