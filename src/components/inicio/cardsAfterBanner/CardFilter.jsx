@@ -6,13 +6,13 @@ export const CardFilter = () => {
 
   return (
     <div className='my-5'>
-      <>
+      <div className='cardContainerFilter1'>
         <h4>New Listings in Brentwood, TN</h4>
 
         <div style={{lineHeight: '10px', fontSize: '15px'}}>
           <NavLink>View All 45 New Listings</NavLink>
         </div>
-      </>
+      </div>
 
       <div className = 'row'>
         {

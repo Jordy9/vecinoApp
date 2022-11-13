@@ -13,8 +13,8 @@ export const Card = () => {
   const [ respWidth ] = useResponsive()
 
   return (
-    <div className={`my-5 ${(respWidth >= 600) && 'cardContainer'}`}>
-      <div className={`${(respWidth < 600) && 'cardContainer'}`}>
+    <div className={`my-4 ${(respWidth >= 600) && 'cardContainer'}`}>
+      <div className={`${(respWidth < 600) && 'cardContainer'} mb-1`}>
         <h4>New Listings in Brentwood, TN</h4>
 
         <div style={{lineHeight: '10px', fontSize: '15px'}}>
@@ -29,7 +29,9 @@ export const Card = () => {
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
+          loop
           slidesPerView={1.5}
+          initialSlide = {1}
           coverflowEffect={{
             rotate: 50,
             stretch: 0,

@@ -19,7 +19,7 @@ export const Navb = () => {
 
   const noActiveStyle = {
     border: '1px solid', 
-    fontSize: '15px'
+    // fontSize: '15px'
   }
 
   return (

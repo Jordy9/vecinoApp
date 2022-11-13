@@ -1,16 +1,22 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const CardItem = () => {
+
+    const navigate = useNavigate()
+
   return (
     <div 
         style={{cursor: 'pointer'}} 
         className = 'cardMouse'
+        onClick={() => navigate('/rentar/:47145154515')}
     >
         <div style={{position: 'relative'}}>
             <img 
                 src="https://ap.rdcpix.com/f282661392fa3e652f9f0a93bd5baeb3l-m3325926915od-w480_h360.webp" 
-                className='img-fluid rounded' 
+                className='img-fluid' 
                 alt="" 
+                style={{borderTopLeftRadius: '4px', borderTopRightRadius: '4px'}}
             />
             <div 
                 style={{

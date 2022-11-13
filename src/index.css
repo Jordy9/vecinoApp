@@ -12,6 +12,29 @@ code {
     monospace;
 }
 
+/* .hoverBorder {
+  position: relative;
+}
+
+.hoverBorder::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  width: 0;
+}
+
+.hoverBorder:hover::after {
+  width: 100%;
+  border-bottom: 3px solid red;
+  transition: all .5s;
+} */
+
+.hoverBorder:hover {
+  border-bottom: 3px solid red;
+}
+
 .searchForm {
   height: 60px !important;
   padding-left: 40px !important;
@@ -108,6 +131,10 @@ code {
   opacity: 0.8;
 }
 
+.popover {
+  max-width: 400px !important;
+}
+
 .rounded {
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
@@ -115,6 +142,10 @@ code {
 
 .card-body {
   padding-top: 0 !important;
+}
+
+.typeProperty:hover {
+  color: red;
 }
 
 textarea:focus, 
