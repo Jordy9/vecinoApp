@@ -12,6 +12,18 @@ code {
     monospace;
 }
 
+.optionsCarousel {
+  box-shadow: rgb(0 0 0 / 30%) 0px 0px 8px;
+}
+
+.optionsCarousel:hover {
+  box-shadow: rgb(0 0 0 / 70%) 0px 0px 8px;
+}
+
+.heartBg path:hover {
+  fill: rgba(124, 52, 52, 0.7) !important;
+}
+
 /* .hoverBorder {
   position: relative;
 }
@@ -128,7 +140,7 @@ code {
 }
 
 .cardMouse:hover {
-  opacity: 0.8;
+  box-shadow: rgb(0 0 0 / 30%) 0px 0px 8px;;
 }
 
 .popover {

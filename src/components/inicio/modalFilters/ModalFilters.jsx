@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import buildings from '../../../assets/buildings.svg'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from "swiper";
 import "swiper/css/pagination";
 import 'swiper/css';
 

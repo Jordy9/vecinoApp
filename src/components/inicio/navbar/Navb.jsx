@@ -3,6 +3,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import vecino from '../../../assets/VecinoLogo.ico'
 import { useResponsive } from '../../../hooks/useResponsive'
+import { ModalLoginCreateAccount } from '../carouselRentaPorId/ModalLoginCreateAccount'
 import { Sidebar } from '../sidebar/Sidebar'
 
 export const Navb = () => {
@@ -21,6 +22,8 @@ export const Navb = () => {
     border: '1px solid', 
     // fontSize: '15px'
   }
+
+  const [showLoginCreate, setShowLoginCreate] = useState(false)
 
   return (
     <Navbar bg='white' variant='light' style={{borderBottom: '1px solid gray'}} expand="lg">
@@ -59,7 +62,7 @@ export const Navb = () => {
 
           <Nav className='ml-auto' style={{marginRight: (respWidth < 992) ? '40px' : '100px'}}>
             <button style={{border: '1px solid', fontSize: '15px'}} className='btn mr-5'>Administrar propiedades</button>
-            <button className='btn btn-button-login'>Login</button>
+            <button onClick={() => setShowLoginCreate(true)} className='btn btn-button-login'>Login</button>
           </Nav>
         </Container>
       }
@@ -68,11 +71,13 @@ export const Navb = () => {
         (respWidth < 992)
           &&
         <Nav style={{marginRight: '20px'}}>
-          <button className='btn btn-button-login-user-icon' style={{fontSize: '24px'}}>
+          <button onClick={() => setShowLoginCreate(true)} className='btn btn-button-login-user-icon' style={{fontSize: '24px'}}>
             <i className="bi bi-person"></i>
           </button>
         </Nav>
       }
+
+      <ModalLoginCreateAccount  showLoginCreate = {showLoginCreate} setShowLoginCreate = {setShowLoginCreate} />
 
     </Navbar>
   )

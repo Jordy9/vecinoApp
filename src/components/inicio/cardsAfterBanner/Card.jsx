@@ -41,7 +41,7 @@ export const Card = () => {
           }}
           // pagination={true}
           modules={[EffectCoverflow, Pagination]}
-          className="mySwiper"
+          // className="mySwiper"
         >
         {
           [1, 2, 3, 4].map(e => {

@@ -3,18 +3,22 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import "swiper/css/free-mode";
 import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
 import "./StyleCarousel.css";
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { NavLink, useNavigate } from 'react-router-dom';
+import { ModalToShare } from './ModalToShare';
+import { ModalLoginCreateAccount } from './ModalLoginCreateAccount';
 
 export const CarouselRentaPorId = () => {
 
   const [searchState, setSearchState] = useState('')
 
-  // const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const arregloImagenes = [
   'https://swiperjs.com/demos/images/nature-1.jpg',
@@ -34,6 +38,9 @@ export const CarouselRentaPorId = () => {
   const goBack = () => {
     navigate(-1)
   }
+
+  const [show, setShow] = useState(false)
+  const [showLoginCreate, setShowLoginCreate] = useState(false)
 
   return (
     <div className='p-4'>
@@ -65,19 +72,77 @@ export const CarouselRentaPorId = () => {
                   style={{
                     "--swiper-navigation-color": "#fff",
                     "--swiper-pagination-color": "#fff",
-                    height: '400px'
+                    userSelect: 'none',
+                    height: '400px',
                   }}
                   slidesPerView={1}
                   navigation
-                  // thumbs={{ swiper: thumbsSwiper }}
+                  thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                   modules={[FreeMode, Navigation, Thumbs]}
                   className="mySwiper2"
                 >
                   {
                     arregloImagenes.map(e => {
                       return (
+                        <SwiperSlide key={e} style = {{position: 'relative'}}>
+                          <img src={e} style = {{height: '100%', width: '100%'}} alt='' />
+                        </SwiperSlide>
+                      )
+                    })
+                  }
+                </Swiper>
+
+                <div 
+                  onClick={() => setShowLoginCreate(true)}
+                  className='d-flex align-items-center justify-content-center optionsCarousel' 
+                  style={{
+                    position: 'absolute', 
+                    zIndex: 1046, 
+                    bottom: -25, 
+                    right: 100, 
+                    backgroundColor: 'white', 
+                    height: '45px', 
+                    width: '45px', 
+                    borderRadius: '50%',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <i className="bi bi-heart"></i>
+                </div>
+
+                <div 
+                  onClick={() => setShow(true)}
+                  className='d-flex align-items-center justify-content-center optionsCarousel' 
+                  style={{
+                    position: 'absolute', 
+                    zIndex: 1046, 
+                    bottom: -25, 
+                    right: 40, 
+                    backgroundColor: 'white', 
+                    height: '45px', 
+                    width: '45px', 
+                    borderRadius: '50%',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <i className="bi bi-share"></i>
+                </div>
+
+                <Swiper
+                    onClick={setThumbsSwiper}
+                    onSwiper = {setThumbsSwiper}
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    freeMode={true}
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="mySwiper"
+                  >
+                  {
+                    arregloImagenes.map(e => {
+                      return (
                         <SwiperSlide key={e}>
-                          <img className='img-fluid' src={e} alt='' />
+                          <img src={e} alt='' />
                         </SwiperSlide>
                       )
                     })
@@ -177,6 +242,8 @@ export const CarouselRentaPorId = () => {
           </div>
         </div>
       </div>
+      <ModalToShare show = {show} setShow = {setShow} />
+      <ModalLoginCreateAccount showLoginCreate = {showLoginCreate} setShowLoginCreate = {setShowLoginCreate} />
     </div>
   )
 }
