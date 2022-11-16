@@ -66,6 +66,13 @@ export const CarouselRentaPorId = () => {
     }
   }
 
+  const handleInputChange = (target) => {
+    setSearchState(target.value)
+    if (respWidth < 992) {
+      setShowModalSearchFilter(true)
+    }
+}
+
   return (
     <div className='p-4'>
       <div className = 'row mb-3'>
@@ -78,7 +85,7 @@ export const CarouselRentaPorId = () => {
 
               <div style={{position: 'relative'}}>
 
-                <input onClick={handleCustomDatalist} className="form-control searchFormFilter" value={searchState} onChange={({ target }) => setSearchState(target.value)} type="text" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search" />
+                <input onClick={handleCustomDatalist} className="form-control searchFormFilter" value={searchState} onChange={({ target }) => handleInputChange(target)} type="text" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search" />
                   {
                     (searchState !== '')
                         &&

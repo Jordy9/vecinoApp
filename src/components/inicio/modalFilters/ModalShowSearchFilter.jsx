@@ -25,7 +25,7 @@ export const ModalShowSearchFilter = ({ show, setShow, respWidth, searchState, s
                         {
                             (searchState !== '')
                                 &&
-                            <i onClick={() => setSearchState('')} style={{position: 'absolute', color: 'black', fontSize: '24px', right: 55, marginTop: '5.5px', cursor: 'pointer'}} className="bi bi-x-lg searchX"></i>
+                            <i onClick={() => setSearchState('')} style={{position: 'absolute', color: 'black', fontSize: '20px', right: 55, marginTop: '7.5px', cursor: 'pointer'}} className="bi bi-x-lg searchX"></i>
                         }
                         <button onClick={() => navigate('/rentar-busqueda')} type='buttom' style={{position: 'absolute', color: 'red', fontSize: '18px', right: 0, marginTop: '0.10rem', marginRight: 1}} className='btn btn-search-danger'>
                             <i className="bi bi-search text-white"></i>

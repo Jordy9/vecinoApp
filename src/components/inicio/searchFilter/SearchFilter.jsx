@@ -42,6 +42,13 @@ export const SearchFilter = ({ title = 'To each their home.®', secondTitle = 'L
         setshowCustomDatalist(false)
     }
 
+    const handleInputChange = (target) => {
+        setSearchState(target.value)
+        if (respWidth < 992) {
+            setShow(true)
+        }
+    }
+
     const [show, setShow] = useState(false)
 
     const handleCustomDatalist = () => {
@@ -81,11 +88,11 @@ export const SearchFilter = ({ title = 'To each their home.®', secondTitle = 'L
             <div className = 'row'>
                <div className = 'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-flex justify-content-center'>      
                     <form style={{position: 'relative', width: (respWidth < 650) ? 'auto' : '650px'}} className="d-flex" role="search">
-                        <input onClick={handleCustomDatalist} className="form-control searchForm" value={searchState} onChange={({ target }) => setSearchState(target.value)} type="text" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search" />
+                        <input onClick={handleCustomDatalist} className="form-control searchForm" value={searchState} onChange={({ target }) => handleInputChange(target)} type="text" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search" />
                         {
                             (searchState !== '')
                                 &&
-                            <i onClick={() => setSearchState('')} style={{position: 'absolute', color: 'black', fontSize: '24px', right: 70, marginTop: '11px', cursor: 'pointer'}} className="bi bi-x-lg searchX"></i>
+                            <i onClick={() => setSearchState('')} style={{position: 'absolute', color: 'black', fontSize: '24px', right: 70, marginTop: '12.5px', cursor: 'pointer'}} className="bi bi-x-lg searchX"></i>
                         }
                         <button onClick={() => navigate('/rentar-busqueda')} type='buttom' style={{position: 'absolute', color: 'red', fontSize: '24px', right: 0, marginTop: '0.35rem', marginRight: '0.35rem'}} className='btn btn-search-danger'>
                             <i className="bi bi-search text-white"></i>
