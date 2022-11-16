@@ -201,20 +201,61 @@ export const RentaPorFiltro = () => {
         setCheckBath(!checkBath)
     }
 
+    let serachFilterToMap = []
+
+    serachFilterToMap = ['Hola que tal', 'Como estas', 'Todo bien', 'Todo nice']?.filter(e => (searchState === '') ? e : (e.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,"").includes(searchState.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,""))) && e)
+
+    const [showCustomDatalist, setshowCustomDatalist] = useState(false)
+
+    const handleClick = (e) => {
+        setSearchState(e)
+        setshowCustomDatalist(false)
+    }
+
+    const handleCustomDatalist = () => {
+        setshowCustomDatalist(true)
+    }
+
   return (
     <div className='cardContainerFilter mt-4'>
         <div className = 'row cardContainerFilter1'>
            <div className = {`${(respWidth < 992 && 'col-9')} col-xs-10 col-sm-10 col-md-9 col-lg-3 col-xl-3 col-xxl-3`}>
                 <form style={{position: 'relative'}} className="d-flex" role="search">
-                    <input className="form-control searchFormFilter" value={searchState} onChange={({ target }) => setSearchState(target.value)} type="text" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search" />
+                    <input onClick={handleCustomDatalist} className="form-control searchFormFilter" value={searchState} onChange={({ target }) => setSearchState(target.value)} type="text" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search" />
                     {
                         (searchState !== '')
                             &&
-                        <i onClick={() => setSearchState('')} style={{position: 'absolute', color: 'black', fontSize: '18px', right: 45, marginTop: '10px', cursor: 'pointer'}} className="bi bi-x-lg searchX"></i>
+                        <i onClick={() => setSearchState('')} style={{position: 'absolute', color: 'black', fontSize: '18px', right: 45, marginTop: '8.5px', cursor: 'pointer'}} className="bi bi-x-lg searchX"></i>
                     }
                     <button type='buttom' style={{position: 'absolute', color: 'red', right: 0, marginTop: '2px'}} className='btn btn-search-danger'>
                         <i className="bi bi-search text-white"></i>
                     </button>
+
+                    {
+                        (showCustomDatalist && searchState?.length !== 0)
+                            &&
+                        <div
+                            style={{
+                                backgroundColor: 'white', 
+                                color: 'black', 
+                                width: '100%', 
+                                position: 'absolute', 
+                                border: '1px solid black', 
+                                borderRadius: '20px', 
+                                top: 65,
+                                zIndex: 1047,
+                                maxHeight: '300px'
+                            }}
+                        >
+                            {
+                                serachFilterToMap.map(e => {
+                                    return (
+                                        <div className='customDatalist px-2 my-2' onClick={() => handleClick(e)} key={e}>{e}</div>
+                                    )
+                                })
+                            }
+                        </div>
+                    }
                 </form>
            </div>
            <div className = {`${(respWidth < 992 && 'col-3')} col-xs-2 col-sm-2 col-md-3 col-lg-8 col-xl-8 col-xxl-8 d-flex align-items-center`}>

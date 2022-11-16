@@ -43,15 +43,15 @@ export const Card = () => {
           modules={[EffectCoverflow, Pagination]}
           // className="mySwiper"
         >
-        {
-          [1, 2, 3, 4].map(e => {
-            return (
-              <SwiperSlide key={e} className = 'my-3'>
-                <CardItem />
-              </SwiperSlide>
-            )
-          })
-        }
+          {
+            [1, 2, 3, 4].map(e => {
+              return (
+                <SwiperSlide key={e} className = 'my-3'>
+                  <CardItem />
+                </SwiperSlide>
+              )
+            })
+          }
         </Swiper>
           :
         <Swiper
@@ -60,15 +60,15 @@ export const Card = () => {
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
         >
-        {
-          [1, 2, 3, 4].map(e => {
-            return (
-              <SwiperSlide key={e} className = 'my-3'>
-                <CardItem />
-              </SwiperSlide>
-            )
-          })
-        }
+          {
+            [1, 2, 3, 4].map(e => {
+              return (
+                <SwiperSlide key={e} className = 'my-3'>
+                  <CardItem />
+                </SwiperSlide>
+              )
+            })
+          }
         </Swiper>
       }
     </div>

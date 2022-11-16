@@ -13,6 +13,8 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ModalToShare } from './ModalToShare';
 import { ModalLoginCreateAccount } from './ModalLoginCreateAccount';
+import { useResponsive } from '../../../hooks/useResponsive';
+import { ModalShowSearchFilter } from '../modalFilters/ModalShowSearchFilter';
 
 export const CarouselRentaPorId = () => {
 
@@ -42,24 +44,76 @@ export const CarouselRentaPorId = () => {
   const [show, setShow] = useState(false)
   const [showLoginCreate, setShowLoginCreate] = useState(false)
 
+  let serachFilterToMap = []
+
+  serachFilterToMap = ['Hola que tal', 'Como estas', 'Todo bien', 'Todo nice']?.filter(e => (searchState === '') ? e : (e.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,"").includes(searchState.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,""))) && e)
+
+  const [showCustomDatalist, setshowCustomDatalist] = useState(false)
+
+  const handleClick = (e) => {
+    setSearchState(e)
+    setshowCustomDatalist(false)
+  }
+
+  const [ respWidth ] = useResponsive()
+
+  const [showModalSearchFilter, setShowModalSearchFilter] = useState(false)
+
+  const handleCustomDatalist = () => {
+    setshowCustomDatalist(true)
+    if (respWidth < 992) {
+      setShowModalSearchFilter(true)
+    }
+  }
+
   return (
     <div className='p-4'>
       <div className = 'row mb-3'>
          <div className = 'col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-4'>
-            <form style={{position: 'relative'}} className="d-flex align-items-center" role="search">
-              <div onClick={goBack} className='goBack' style={{display: 'flex', alignItems: 'center'}}>
+            <form className="d-flex align-items-center" role="search">
+              <div onClick={goBack} className='goBack mr-5' style={{display: 'flex', alignItems: 'center'}}>
                 <i style={{fontSize: '22px'}} className="bi bi-chevron-left"></i>
-                <span className='mr-5'>Atras</span>
+                <span>Atras</span>
               </div>
-              <input className="form-control searchFormFilter" value={searchState} onChange={({ target }) => setSearchState(target.value)} type="text" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search" />
+
+              <div style={{position: 'relative'}}>
+
+                <input onClick={handleCustomDatalist} className="form-control searchFormFilter" value={searchState} onChange={({ target }) => setSearchState(target.value)} type="text" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search" />
+                  {
+                    (searchState !== '')
+                        &&
+                    <i onClick={() => setSearchState('')} style={{position: 'absolute', color: 'black', fontSize: '18px', right: 45, top: 9, cursor: 'pointer'}} className="bi bi-x-lg searchX"></i>
+                  }
+                <button type='buttom' style={{position: 'absolute', color: 'red', right: 0, top: 2}} className='btn btn-search-danger'>
+                    <i className="bi bi-search text-white"></i>
+                </button>
+
                 {
-                  (searchState !== '')
+                  (showCustomDatalist && searchState?.length !== 0)
                       &&
-                  <i onClick={() => setSearchState('')} style={{position: 'absolute', color: 'black', fontSize: '18px', right: 45, marginTop: '10px', cursor: 'pointer'}} className="bi bi-x-lg searchX"></i>
+                  <div
+                      style={{
+                          backgroundColor: 'white', 
+                          color: 'black', 
+                          width: '100%', 
+                          position: 'absolute', 
+                          border: '1px solid black', 
+                          borderRadius: '20px', 
+                          top: 65,
+                          zIndex: 1047,
+                          maxHeight: '300px'
+                      }}
+                  >
+                      {
+                          serachFilterToMap.map(e => {
+                              return (
+                                  <div className='customDatalist px-2 my-2' onClick={() => handleClick(e)} key={e}>{e}</div>
+                              )
+                          })
+                      }
+                  </div>
                 }
-              <button type='buttom' style={{position: 'absolute', color: 'red', right: 0}} className='btn btn-search-danger'>
-                  <i className="bi bi-search text-white"></i>
-              </button>
+              </div>
             </form>
          </div>
       </div>
@@ -244,6 +298,20 @@ export const CarouselRentaPorId = () => {
       </div>
       <ModalToShare show = {show} setShow = {setShow} />
       <ModalLoginCreateAccount showLoginCreate = {showLoginCreate} setShowLoginCreate = {setShowLoginCreate} />
+      {
+        (showModalSearchFilter)
+          &&
+        <ModalShowSearchFilter
+          show = { showModalSearchFilter } 
+          setShow = { setShowModalSearchFilter }
+          navigate = {navigate}
+          respWidth = {respWidth}
+          searchState = {searchState}
+          setSearchState = {setSearchState}
+          serachFilterToMap = {serachFilterToMap}
+          handleClick = {handleClick}
+        />
+      }
     </div>
   )
 }

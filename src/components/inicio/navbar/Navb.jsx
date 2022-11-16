@@ -61,7 +61,9 @@ export const Navb = () => {
           </Nav>
 
           <Nav className='ml-auto' style={{marginRight: (respWidth < 992) ? '40px' : '100px'}}>
-            <button style={{border: '1px solid', fontSize: '15px'}} className='btn mr-5'>Administrar propiedades</button>
+            <button style={{border: '1px solid', fontSize: '15px'}} className='btn mr-5'>
+              <NavLink to='/administrarPropiedades' style={{color: 'black', textDecoration: 'none'}}>Administrar propiedades</NavLink>
+            </button>
             <button onClick={() => setShowLoginCreate(true)} className='btn btn-button-login'>Login</button>
           </Nav>
         </Container>
