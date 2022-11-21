@@ -67,7 +67,7 @@ export const SearchFilter = ({ title = 'To each their home.®', secondTitle = 'L
                 {secondTitle}
             </p>
 
-            <p>
+            <div style={{marginBottom: '1rem'}}>
                 <Nav className='d-flex justify-content-center'>
                     {
                         routes.map((e, index) => {
@@ -83,7 +83,7 @@ export const SearchFilter = ({ title = 'To each their home.®', secondTitle = 'L
                         })
                     }
                 </Nav>
-            </p>
+            </div>
 
             <div className = 'row'>
                <div className = 'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-flex justify-content-center'>      

@@ -87,7 +87,7 @@ export const FormPropiedades = () => {
         </div>
 
         <div className = 'row'>
-          <div className = 'col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8 form-group'>
+          <div className = 'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 form-group'>
 
             {
               (respWidth < 992)

@@ -57,8 +57,6 @@ export const Card = () => {
         <Swiper
           spaceBetween={20}
           slidesPerView={4}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
         >
           {
             [1, 2, 3, 4].map(e => {

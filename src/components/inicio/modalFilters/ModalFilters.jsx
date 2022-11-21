@@ -66,10 +66,10 @@ export const ModalFilters = ({ show, setShow, respWidth }) => {
                 <div className = 'col-6 mt-2'>
                     <div className="form-group">
 
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-white" id="basic-addon1"><i className="bi bi-currency-dollar"></i></span>
+                        <div className="input-group mb-3">
+                            <span className="input-group-text bg-white" id="basic-addon1"><i className="bi bi-currency-dollar"></i></span>
                             <input onClick={() => setChangeIcon('minInputUp')} onBlur = {() =>setChangeIcon('minInputDown')} style={{borderLeft: 'none'}} type="text" list='minInputLabels' placeholder='Mínimo' className='form-control minInput' aria-describedby="basic-addon1" />
-                            <span class="input-group-text bg-white" id="basic-addon1">
+                            <span className="input-group-text bg-white" id="basic-addon1">
                                 {
                                     (changeIcon === 'minInputUp')
                                         ?
@@ -96,10 +96,10 @@ export const ModalFilters = ({ show, setShow, respWidth }) => {
                 <div className = 'col-6 mt-2'>
                     <div className="form-group">
 
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-white" id="basic-addon1"><i className="bi bi-currency-dollar"></i></span>
+                        <div className="input-group mb-3">
+                            <span className="input-group-text bg-white" id="basic-addon1"><i className="bi bi-currency-dollar"></i></span>
                             <input onClick={() => setChangeIconMax('maxInputUp')} onBlur = {() =>setChangeIconMax('maxInputDown')} style={{borderLeft: 'none'}} type="text" list='maxInputLabel' placeholder='Máximo' className='form-control minInput' aria-describedby="basic-addon1" />
-                            <span class="input-group-text bg-white" id="basic-addon1">
+                            <span className="input-group-text bg-white" id="basic-addon1">
                                 {
                                     (changeIconMax === 'maxInputUp')
                                         ?

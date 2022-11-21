@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Modal } from 'react-bootstrap'
 
 export const ModalShowSearchFilter = ({ show, setShow, respWidth, searchState, setSearchState, navigate, serachFilterToMap, handleClick }) => {
@@ -7,6 +7,15 @@ export const ModalShowSearchFilter = ({ show, setShow, respWidth, searchState, s
         setShow(false)
     }
 
+    useEffect(() => {
+      if (respWidth > 992) {
+        setShow(false)
+      }
+
+      return () => respWidth
+
+    }, [respWidth])
+    
   return (
     <Modal fullscreen show={show} onHide={handleClose}>
         <Modal.Header>

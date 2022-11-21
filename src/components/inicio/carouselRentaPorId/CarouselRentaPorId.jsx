@@ -261,28 +261,28 @@ export const CarouselRentaPorId = () => {
 
             <div className="row">
               <div className="col-12 form-group">
-                <div class="input-group" style={{border: '1px solid black', borderRadius: '4px'}}>
+                <div className="input-group" style={{border: '1px solid black', borderRadius: '4px'}}>
                   <span style={{border: 'none'}} className="input-group-text bg-white" id="basic-addon1"><i style={{color: 'black'}} className="bi bi-person"></i></span>
                   <input style={{border: 'none'}} type="text" className="form-control" placeholder="Nombre completo" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>  
               </div>
 
               <div className="col-12 form-group">
-                <div class="input-group" style={{border: '1px solid black', borderRadius: '4px'}}>
+                <div className="input-group" style={{border: '1px solid black', borderRadius: '4px'}}>
                   <span style={{border: 'none'}} className="input-group-text bg-white" id="basic-addon1"><i style={{color: 'black'}} className="bi bi-envelope-fill"></i></span>
                   <input style={{border: 'none'}} type="text" className="form-control" placeholder="Correo electrónico" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>  
               </div>
 
               <div className="col-12 form-group">
-                <div class="input-group" style={{border: '1px solid black', borderRadius: '4px'}}>
+                <div className="input-group" style={{border: '1px solid black', borderRadius: '4px'}}>
                   <span style={{border: 'none'}} className="input-group-text bg-white" id="basic-addon1"><i style={{color: 'black'}} className="bi bi-telephone-fill"></i></span>
                   <input style={{border: 'none'}} type="text" className="form-control" placeholder="Correo electrónico" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>  
               </div>
 
               <div className="col-12 form-group">
-                <div class="input-group" style={{border: '1px solid black', borderRadius: '4px'}}>
+                <div className="input-group" style={{border: '1px solid black', borderRadius: '4px'}}>
                   <input style={{border: 'none'}} type="date" className="form-control" placeholder="Correo electrónico" aria-label="Username" />
                 </div>  
               </div>

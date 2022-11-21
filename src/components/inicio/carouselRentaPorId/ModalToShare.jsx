@@ -54,8 +54,8 @@ export const ModalToShare = ({ show, setShow }) => {
 
             <div className = 'row mt-4'>
                <div className = 'col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12'>
-                    <div class="input-group">
-                        <span class="input-group-text bg-white" id="basic-addon1">Para:</span>
+                    <div className="input-group">
+                        <span className="input-group-text bg-white" id="basic-addon1">Para:</span>
                         <input type="email" placeholder='Separe los correos por una coma' className='form-control' aria-describedby="basic-addon1" />
                     </div>
                </div>

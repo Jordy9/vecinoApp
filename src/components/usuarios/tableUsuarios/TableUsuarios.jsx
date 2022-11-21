@@ -1,19 +1,19 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { ModalUsuario } from '../modalUsuario/ModalUsuario'
 
-export const TablePropiedades = () => {
+export const TableUsuarios = () => {
 
-  const navigate = useNavigate()
+    const [show, setShow] = useState(false)
 
   return (
     <div className='table-responsive'>
         <table className="table table-hover">
             <thead>
                 <tr className='text-center'>
-                  <th scope="col">Imagen</th>
-                  <th scope="col">Titulo</th>
-                  <th scope="col">Tipo de propiedad</th>
-                  <th scope="col">Fecha</th>
+                  <th scope="col">Foto</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Correo electrónico</th>
+                  <th scope="col">Estado</th>
                   <th scope="col">Acción</th>
                 </tr>
             </thead>
@@ -27,7 +27,7 @@ export const TablePropiedades = () => {
                       <td>Otto</td>
                       <td>@mdo</td>
                       <td>
-                        <button onClick={() => navigate('/crearPropiedad')} className='btn btn-primary'>
+                        <button onClick={() => setShow(true)} className='btn btn-primary'>
                           <i className="bi bi-eye"></i>
                         </button>
 
@@ -45,6 +45,8 @@ export const TablePropiedades = () => {
               }
             </tbody>
         </table>
+
+        <ModalUsuario show = {show} setShow = {setShow} />
     </div>
   )
 }
